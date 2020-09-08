@@ -26,19 +26,35 @@ function scroller(target, maxItems) {
 		inner.prepend(set[i]);
 	}
 
-	var scroll = set.first().outerWidth(true);
+	var width = set.first().outerWidth(true);
 	var diff = mid - center + 1;
 
-	console.log(inner);
-	// inner.scrollLeft(scroll * diff);
-	set.css("left", -(scroll * diff) + "px");
+	set.css("left", -(width * diff) + "px");
+
+	$(".scroll-prev", target).click(function() {
+		var currentSet = $(".infographic-col", target);
+		var last = currentSet.last();
+
+		inner.prepend(last.clone());
+		currentSet.css("left", -(width * (diff + 1)) + "px");
+
+		currentSet.animate({ left: -(width * diff) + "px" }, 600, function() {
+			last.remove();
+		});
+	});
+
+	$(".scroll-next").click(function() {
+		console.log("click");
+	});
 }
 
-$(".scroll-prev", target).click(function() {
-	var currentSet = $(".infographic-col", target);
-	var last = currentSet.last();
-});
+// $(".scroll-prev", target).click(function() {
+// 	var currentSet = $(".infographic-col", target);
+// 	var last = currentSet.last();
+//
+// 	inner.prepend(last.clone());
+// });
 
-$(".scroll-right").click(function() {
-	console.log("click");
-});
+// $(".scroll-next").click(function() {
+// 	console.log("click");
+// });
