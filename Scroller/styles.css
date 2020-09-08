@@ -1,0 +1,34 @@
+section {
+	padding: 1.25vw;
+}
+
+.item-card {
+	background: pink;
+	color: deeppink;
+	font-size: 5vw;
+	width: 100%;
+	height: 15vw;
+	text-align: center;
+}
+
+.infographic-col {
+	border: 1px solid mediumslateblue;
+	padding: 1vw;
+	transform: translateX(-50%);
+}
+
+.scroller-controls {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.scroller-inner {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+}
+
+.infographic-col {
+	position: relative;
+	width: 100%;
+}
