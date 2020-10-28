@@ -1,0 +1,98 @@
+/* .timer {
+	width: 5vw;
+	height: 5vw;
+	margin: 2vw auto;
+}
+
+.timer path, .timer circle {
+	fill: none;
+	stroke-width: 14;
+}
+
+.timer path {
+	stroke: lightskyblue;
+	stroke-dasharray: 600;
+	stroke-dashoffset: 0;
+}
+
+.timer.start path {
+	stroke-dashoffset: 600;
+	transition: stroke-dashoffset 60s linear;
+}
+
+.timer circle {
+	stroke: royalblue;
+}
+
+.timer text {
+	text-anchor: middle;
+	dominant-baseline: middle;
+	fill: orchid;
+	stroke: orchid;
+	stroke-width: 2;
+}
+
+button {
+	display: block;
+	margin: 2vw auto;
+	padding: 0.5vw;
+	font-size: 1vw;
+} */
+/* body {
+	display: flex;
+} */
+div {
+	width: 25vw;
+	height: 25vw;
+	margin: 2vw auto;
+}
+
+/*svg {
+	border: 2px solid deeppink;
+}
+
+path {
+	stroke: royalblue;
+	stroke-width: 14;
+	fill: none;
+	stroke-dasharray: 600;
+	stroke-dashoffset: 0;
+} */
+/* svg:hover path {
+		stroke: lightskyblue;
+	stroke-dashoffset: 600;
+	transition: stroke-dashoffset 4s linear;
+} */
+/* .success-animation {
+	width: 25vw;
+	height: 25vw;
+	margin-bottom: 2vw;
+} */
+.success-animation circle:not(#dot) {
+	stroke-width: 100;
+	stroke: #42ad4e;
+	fill: none;
+}
+
+.success-animation path {
+	stroke: #0A8342;
+	stroke-width: 40;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	fill: none;
+	/* 	fill: #42ad4e; */
+	fill-opacity: 0;
+	/* 	stroke-dasharray: 2563;
+	stroke-dashoffset: 2563; */
+}
+
+.success-animation:hover path {
+	stroke-dashoffset: 0;
+	fill-opacity: 1;
+	transition: stroke-dashoffset 1s ease, fill-opacity 1s linear;
+}
+
+.success-animation.start path {
+	stroke-dashoffset: 2471;
+	transition: stroke-dashoffset 2s linear;
+}
