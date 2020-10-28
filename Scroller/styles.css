@@ -13,9 +13,28 @@ section {
 }
 
 .infographic-col {
-	border: 1px solid mediumslateblue;
+	border: 5px solid lightcoral;
 	padding: 1vw;
 	transform: translateX(-50%);
+	transition: border-color 0.6s linear, transform 0.6s linear, -webkit-transform 0.6s linear;
+}
+
+.infographic-col.active {
+	border: 5px solid darkgoldenrod;
+}
+
+.infographic-col.lv-2 {
+	/* transform: scale(0.75); */
+	border-color: mediumslateblue;
+}
+
+.infographic-col.lv-3 {
+	/* transform: scale(0.5); */
+	border-color: crimson;
+}
+
+html[lang="ar"] .infographic-col {
+	transform: translateX(50%);
 }
 
 .scroller-controls {
