@@ -1,0 +1,15 @@
+iframe {
+	border: none;
+	outline: none;
+	overflow: hidden;
+	border: 1px solid skyblue;
+	height: 100%;
+}
+
+.flipbook {
+	height: 40vw;
+}
+
+.flipbook .page {
+	border: 1px solid deeppink;
+}
