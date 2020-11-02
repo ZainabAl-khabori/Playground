@@ -8,32 +8,47 @@ async function book(book, scale) {
 	var loadingTask = pdfjsLib.getDocument(url);
 	var pdf = await loadingTask.promise;
 
-	for (var i = 1; i <= pdf.numPages; i++) {
-		var page = await pdf.getPage(i);
-		var pageDiv = $("<div class='page'></div>");
+	for (var i = 0; i < pdf.numPages; i++) {
+		var bookPage = $("<div class='page p" + (i + 1) + "'><canvas></canvas></div>");
+		var canvas = $("canvas", bookPage);
 
-		var canvas = $("<canvas></canvas>");
-		var context = canvas[0].getContext("2d");
-		var viewport = page.getViewport({ scale: scale });
+		if (i < 2 || i > pdf.numPages - 3) {
+			bookPage.addClass("hard");
+		}
 
-		canvas.attr("width", viewport.width);
-		canvas.attr("height", viewport.height);
-		$(book).append(pageDiv);
-		$(pageDiv).append(canvas);
 
-		var renderContext = {
-			canvasContext: context,
-			viewport: viewport
-		};
 
-		page.render(renderContext);
+		$(book).append(bookPage);
 	}
 
-	$(".flipbook").turn({
-		width: viewport.width * 2,
-		height: viewport.height,
-		autoCenter: true
-	});
+	// for (var i = 1; i <= pdf.numPages; i++) {
+	// 	var page = await pdf.getPage(i);
+	// 	var pageDiv = $("<div class='page'></div>");
+	//
+	// 	var canvas = $("<canvas></canvas>");
+	// 	var context = canvas[0].getContext("2d");
+	// 	var viewport = page.getViewport({ scale: scale });
+	//
+	// 	canvas.attr("width", viewport.width);
+	// 	canvas.attr("height", viewport.height);
+	// 	$(book).append(pageDiv);
+	// 	$(pageDiv).append(canvas);
+	//
+	// 	var renderContext = {
+	// 		canvasContext: context,
+	// 		viewport: viewport
+	// 	};
+	//
+	// 	page.render(renderContext);
+	//
+	// 	if (i === 3) {
+	// 		$(".flipbook").turn({
+	// 			width: viewport.width * 2,
+	// 			height: viewport.height,
+	// 			autoCenter: true
+	// 		});
+	// 	}
+	// }
 
 	// var textContent = await page.getTextContent();
 	// var div = $("<div class='textLayer'></div>");
