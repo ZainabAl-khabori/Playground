@@ -63,6 +63,8 @@ async function book(book, scale) {
 	rendered[0] = true;
 
 	$(book).on("turning", async function(e, pageNum, view) {
+		$(book).turn("disable", true);
+
 		var range = $(book).turn("range");
 		for (var i = range[0]; i <= range[1]; i++) {
 			if ($(book).turn("hasPage", i) && !rendered[i - 1]) {
@@ -80,7 +82,10 @@ async function book(book, scale) {
 					viewport: viewport
 				};
 
-				page.render(renderContext);
+				page.render(renderContext).promise.then(function() {
+					console.log("Owatta to iu koto yo");
+					$(book).turn("disable", false);
+				});
 			}
 		}
 	});
