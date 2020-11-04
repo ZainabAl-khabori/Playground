@@ -5,8 +5,8 @@ async function book(book) {
 	var url = $(book).attr("book");
 
 	var next = $(book).next();
-	var wrapper = $("<div class='book-wrapper'></div>");
-	wrapper.append(book);
+	var wrapper = $("<div class='book-viewer'><div class='book-wrapper thumbnail'></div></div>");
+	$(".book-wrapper", wrapper).append(book);
 	next.before(wrapper);
 
 	var loadingTask = pdfjsLib.getDocument(url);
@@ -49,17 +49,14 @@ async function book(book) {
 	}
 
 	var viewport = await renderPage(1);
-	$(book).css("margin-inline-start", -viewport.width);
+	$(book).parent().css("width", viewport.width * 2);
 	$(book).turn({
 		width: viewport.width * 2,
-		height: viewport.height
+		height: viewport.height,
+		autoCenter: true
 	});
 
 	$(book).on("turning", async function(e, pageNum, view) {
-		var bookWidth = $(this).outerWidth(true) / 2;
-		var margin = pageNum === 1 ? -bookWidth : pageNum === numPages ? bookWidth : 0;
-		$(this).animate({ "margin-inline-start": margin }, 400);
-
 		var range = $(this).turn("range");
 		for (var i = range[0]; i <= range[1]; i++) {
 			if (i <= pdf.numPages && !rendered[i - 1]) {

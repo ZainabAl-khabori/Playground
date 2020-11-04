@@ -21,16 +21,25 @@ body {
 	overflow: hidden;
 }
 
-.book-wrapper {
+.book-viewer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.book-wrapper {
+	display: inline-block;
 	margin-top: 2vw;
 	margin-bottom: 2vw;
 }
 
 .flipbook {
 	height: 75vh;
+}
+
+.book-wrapper.thumbnail {
+	transform: scale(0.25);
+	pointer-events: none;
 }
 
 .flipbook .page {
@@ -77,4 +86,8 @@ body {
 .flipbook .even:not(.hard) .gradient {
 	background-image: linear-gradient(to right, transparent 95%, #dadada 100%);
 	box-shadow: inset 0 0 5px #666;
+}
+
+.flipbook .page canvas {
+	user-select: none;
 }
