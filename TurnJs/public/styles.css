@@ -38,7 +38,8 @@ body {
 }
 
 .book-wrapper.thumbnail {
-	transform: scale(0.25);
+	transform-origin: top left;
+	transform: scale3d(0.25, 0.25, 0.25);
 	pointer-events: none;
 }
 
@@ -66,7 +67,7 @@ body {
 	font-weight: bold;
 }
 
-.flipbook .hard:not(.p1) .gradient {
+.flipbook .hard:not(.non-blank) .gradient {
 	background: whitesmoke;
 }
 

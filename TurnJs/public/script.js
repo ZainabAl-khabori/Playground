@@ -1,11 +1,15 @@
 // jshint esversion: 8
 
 async function book(book) {
-	pdfjsLib.GlobalWorkerOptions.workerSrc = "/build/pdf.worker.js";
 	var url = $(book).attr("book");
+	var name = url.substring(url.lastIndexOf("/") + 1).split(".")[0];
+
+	console.log(name);
+
+	pdfjsLib.GlobalWorkerOptions.workerSrc = "/build/pdf.worker.js";
 
 	var next = $(book).next();
-	var wrapper = $("<div class='book-viewer'><div class='book-wrapper thumbnail'></div></div>");
+	var wrapper = $("<div class='book-viewer'><div class='book-wrapper'></div></div>");
 	$(".book-wrapper", wrapper).append(book);
 	next.before(wrapper);
 
@@ -21,6 +25,11 @@ async function book(book) {
 		var widthScale = ($(document).outerWidth(true) - 150) / (page.getViewport({ scale: 1 }).width * 2);
 		var scale = Math.min(heightScale, widthScale);
 		var viewport = page.getViewport({ scale: scale });
+		var objects = await page.getOperatorList();
+
+		if ($(".p" + i).is(".hard") && objects.argsArray.length > 0) {
+			$(".p" + i).addClass("non-blank");
+		}
 
 		var canvas = $("canvas", ".p" + i);
 		var context = canvas[0].getContext("2d");
