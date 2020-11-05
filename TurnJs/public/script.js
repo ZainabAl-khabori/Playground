@@ -4,14 +4,12 @@ async function book(book) {
 	var url = $(book).attr("book");
 	var name = url.substring(url.lastIndexOf("/") + 1).split(".")[0];
 
-	console.log(name);
-
-	pdfjsLib.GlobalWorkerOptions.workerSrc = "/build/pdf.worker.js";
-
 	var next = $(book).next();
 	var wrapper = $("<div class='book-viewer'><div class='book-wrapper'></div></div>");
 	$(".book-wrapper", wrapper).append(book);
 	next.before(wrapper);
+
+	pdfjsLib.GlobalWorkerOptions.workerSrc = "/build/pdf.worker.js";
 
 	var loadingTask = pdfjsLib.getDocument(url);
 	var pdf = await loadingTask.promise;
