@@ -21,6 +21,10 @@ body {
 	overflow: hidden;
 }
 
+.book-container {
+	width: 100%;
+}
+
 .book-viewer {
 	display: flex;
 	flex-direction: column;
@@ -31,16 +35,12 @@ body {
 	display: inline-block;
 	margin-top: 2vw;
 	margin-bottom: 2vw;
+	position: absolute;
+	transform-origin: top left;
 }
 
 .flipbook {
 	height: 75vh;
-}
-
-.book-wrapper.thumbnail {
-	transform-origin: top left;
-	transform: scale3d(0.25, 0.25, 0.25);
-	pointer-events: none;
 }
 
 .flipbook .page {
@@ -91,4 +91,28 @@ body {
 
 .flipbook .page canvas {
 	user-select: none;
+}
+
+.item {
+	width: 20vw;
+	border: 2px solid orchid;
+	margin: 4vw;
+	padding: 1vw;
+}
+
+.book-container.thumbnail {
+	position: relative;
+}
+
+.book-container .book-viewer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background: lavenderblush; */
+}
+
+.book-container.thumbnail .book-wrapper {
+	margin: 0;
 }
