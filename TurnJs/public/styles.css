@@ -39,10 +39,6 @@ body {
 	transform-origin: top left;
 }
 
-.flipbook {
-	height: 75vh;
-}
-
 .flipbook .page {
 	background-color: white;
 	line-height: 300px;

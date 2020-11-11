@@ -1,0 +1,15 @@
+{
+  "name": "electrontests",
+  "version": "1.0.0",
+  "description": "Playing and testing Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zainab Al-khabori",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5"
+  }
+}
