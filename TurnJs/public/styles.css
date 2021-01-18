@@ -1,22 +1,3 @@
-.textLayer {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	overflow: hidden;
-	opacity: 0.2;
-	line-height: 0.6;
-}
-
-.textLayer>span {
-	color: transparent;
-	position: absolute;
-	white-space: pre;
-	cursor: text;
-	transform-origin: 0% 0%;
-}
-
 body {
 	overflow: hidden;
 }
@@ -96,8 +77,20 @@ body {
 	padding: 1vw;
 }
 
-.book-container.thumbnail {
-	position: relative;
+.item img {
+	width: 100%;
+	border: 1px solid forestgreen;
+	transition: transform 0.2s linear;
+}
+
+.item img:hover {
+	transform: scale(1.1);
+}
+
+.book-container {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .book-container .book-viewer {
