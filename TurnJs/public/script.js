@@ -99,6 +99,9 @@ async function book(cover) {
 			var dims = await drawImg(page.data, canvas[0]);
 			return dims;
 		} else {
+			console.log(canvas);
+			console.log(canvas.length);
+			console.log(i);
 			var context = canvas[0].getContext("2d");
 			var renderContext = {
 				canvasContext: context,
@@ -150,16 +153,14 @@ async function book(cover) {
 		$(book).parents(".book-container").show();
 		$(book).parents(".thumbnail").removeClass("thumbnail");
 		$(book).turn("page", 3);
-
 		await renderPage(3, finalHeight);
-		await renderPage(2, finalHeight);
-		await renderPage(1, finalHeight);
 	});
 
 	$(book).on("turning", async function(e, pageNum, view) {
 		var range = $(this).turn("range");
 		for (var i = range[0]; i <= range[1]; i++) {
-			if (i <= pdf.numPages && !rendered[i - 1]) {
+			var canvas = $("canvas", ".p" + i);
+			if (i <= pdf.numPages && !rendered[i - 1] && canvas.length > 0) {
 				await renderPage(i, finalHeight);
 			}
 		}
