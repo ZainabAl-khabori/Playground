@@ -2,6 +2,115 @@ body {
 	overflow: hidden;
 }
 
+.flipbook .page {
+	background-color: white;
+	line-height: 300px;
+	font-size: 20px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.flipbook .page-wrapper {
+	-webkit-perspective: 2000px;
+	-moz-perspective: 2000px;
+	-ms-perspective: 2000px;
+	-o-perspective: 2000px;
+	perspective: 2000px;
+}
+
+.flipbook .hard .gradient {
+	color: #333;
+	box-shadow: inset 0 0 5px #666;
+	font-weight: bold;
+}
+
+.flipbook .hard:not(.non-blank) .gradient {
+	background: whitesmoke;
+}
+
+.flipbook .gradient {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.flipbook .odd:not(.hard) .gradient {
+	background-image: linear-gradient(to left, transparent 95%, #C4C4C4 100%);
+	box-shadow: inset 0 0 5px #666;
+}
+
+.flipbook .even:not(.hard) .gradient {
+	background-image: linear-gradient(to right, transparent 95%, #dadada 100%);
+	box-shadow: inset 0 0 5px #666;
+}
+
+.flipbook .page canvas {
+	user-select: none;
+}
+
+.item {
+	width: 20vw;
+	border: 2px solid orchid;
+	margin: 4vw;
+	padding: 1vw;
+	flex-grow: 0;
+}
+
+.book-cover {
+	width: 100%;
+	box-shadow: inset 0 0 10px #666;
+	background-size: contain;
+	transition: transform 0.2s linear;
+}
+
+.book-cover:hover {
+	transform: scale(1.1);
+}
+
+.book-viewer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2vw;
+	margin-bottom: 2vw;
+}
+
+.book-wrapper {
+	display: inline-block;
+	position: absolute;
+	transform-origin: top left;
+}
+
+.book-controls {
+	position: absolute;
+	bottom: -4vw;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+}
+
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* body {
+	overflow: hidden;
+}
+
 .book-container {
 	width: 100%;
 }
@@ -77,20 +186,8 @@ body {
 	padding: 1vw;
 }
 
-.item img {
-	width: 100%;
-	border: 1px solid forestgreen;
-	transition: transform 0.2s linear;
-}
-
-.item img:hover {
-	transform: scale(1.1);
-}
-
-.book-container {
-	position: absolute;
-	top: 0;
-	left: 0;
+.book-container.thumbnail {
+	position: relative;
 }
 
 .book-container .book-viewer {
@@ -99,9 +196,8 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	/* background: lavenderblush; */
 }
 
 .book-container.thumbnail .book-wrapper {
 	margin: 0;
-}
+} */

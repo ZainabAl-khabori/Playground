@@ -11,6 +11,7 @@ async function book(cover) {
 	var name = url.substring(url.lastIndexOf("/") + 1).split(".")[0];
 	var parent = $(cover).parent();
 	var index = parent.children().index(cover);
+	var coverUrl = $(cover).attr("cover");
 
 	var img = new Image();
 	var dims = {};
@@ -18,10 +19,15 @@ async function book(cover) {
 		var scale = $(cover).outerWidth(true) / img.width;
 		dims.width = $(cover).outerWidth(true);
 		dims.height = img.height * scale;
+		$(cover).css("height", dims.height);
 	};
-	img.src = $(cover).attr("src");
 
-	var container = $("<div class='book-container'><div class='book-viewer'><div class='book-wrapper'><div class='flipbook book'></div></div></div></div>");
+	img.src = coverUrl;
+	$(cover).css("background-image", "url('" + coverUrl + "')");
+
+	var container = $("<div class='book-viewer'></div>");
+	container.append("<div class='book-wrapper'><div class='flipbook book'></div></div>");
+	container.append("<div class='book-controls'><button type='button' name='close'>X</button></div>");
 	var book = $(".book", container)[0];
 
 	var pdf = window.localStorage.getItem(name);
@@ -57,8 +63,8 @@ async function book(cover) {
 			var img = new Image();
 			var dims = {};
 			img.onload = function() {
-				var scale = $(book).parents(".book-container").outerWidth(true) / img.width;
-				dims.width = $(book).parents(".book-container").outerWidth(true);
+				var scale = $(book).parents(".book-viewer").outerWidth(true) / img.width;
+				dims.width = $(book).parents(".book-viewer").outerWidth(true);
 				dims.height = img.height * scale;
 
 				canvas.width = dims.width;
@@ -81,34 +87,37 @@ async function book(cover) {
 
 		if (saved) {
 			if (pdf.nonBlank.includes(i)) {
-				$(".p" + i).addClass("non-blank");
+				$(".p" + i, book).addClass("non-blank");
 			}
 		} else {
 			var objects = await page.getOperatorList();
 
-			if ($(".p" + i).is(".hard") && objects.argsArray.length > 0) {
-				$(".p" + i).addClass("non-blank");
+			if ($(".p" + i, book).is(".hard") && objects.argsArray.length > 0) {
+				$(".p" + i, book).addClass("non-blank");
 			}
 		}
 
-		var canvas = $("canvas", ".p" + i);
+		var canvas = $("canvas", $(".p" + i, book));
 		canvas.attr("width", viewport.width);
 		canvas.attr("height", viewport.height);
 
 		if (saved) {
 			var dims = await drawImg(page.data, canvas[0]);
+			$(".book-loading", $(".p" + i, book)).remove();
 			return dims;
 		} else {
-			console.log(canvas);
-			console.log(canvas.length);
-			console.log(i);
-			var context = canvas[0].getContext("2d");
-			var renderContext = {
-				canvasContext: context,
-				viewport: viewport
-			};
+			if (canvas.length > 0) {
+				var context = canvas[0].getContext("2d");
+				var renderContext = {
+					canvasContext: context,
+					viewport: viewport
+				};
 
-			page.render(renderContext);
+				page.render(renderContext);
+				$(".book-loading", $(".p" + i, book)).remove();
+			} else {
+				rendered[i - 1] = false;
+			}
 			return viewport;
 		}
 	};
@@ -128,6 +137,7 @@ async function book(cover) {
 		}
 
 		bookPage.append("<div class='gradient'></div>");
+		bookPage.append("<img class='book-loading' src='../loading-icon.gif' alt='loading'>");
 		$(book).append(bookPage);
 	}
 
@@ -136,7 +146,7 @@ async function book(cover) {
 	var finalWidth = dims.width * scale;
 
 	$(book).parents(".book-wrapper").css("width", finalWidth * 2);
-	$(book).parents(".book-container").css("height", finalHeight);
+	$(book).parents(".book-viewer").css("height", finalHeight);
 
 	$(book).turn({
 		width: finalWidth * 2,
@@ -147,11 +157,12 @@ async function book(cover) {
 
 	var top = $(book).offset().top;
 	var left = $(book).offset().left;
-	$(book).parents(".book-container").hide();
+	$(book).parents(".book-viewer").hide();
 
+	var close = false;
 	$(cover).click(async function() {
-		$(book).parents(".book-container").show();
-		$(book).parents(".thumbnail").removeClass("thumbnail");
+		$(this).css("pointer-events", "none");
+		$(book).parents(".book-viewer").fadeIn();
 		$(book).turn("page", 3);
 		await renderPage(3, finalHeight);
 	});
@@ -159,216 +170,36 @@ async function book(cover) {
 	$(book).on("turning", async function(e, pageNum, view) {
 		var range = $(this).turn("range");
 		for (var i = range[0]; i <= range[1]; i++) {
-			var canvas = $("canvas", ".p" + i);
+			var canvas = $("canvas", $(".p" + i, book));
 			if (i <= pdf.numPages && !rendered[i - 1] && canvas.length > 0) {
 				await renderPage(i, finalHeight);
 			}
 		}
 	});
+
+	var closeBook = function() {
+		close = false;
+		$(book).parents(".book-viewer").fadeOut(function() {
+			$(cover).css("pointer-events", "");
+			if ($(book).turn("page") === pdf.numPages) {
+				$(book).turn("page", 1);
+			}
+		});
+	};
+
+	$("button[name='close']", container).click(function() {
+		close = true;
+		var current = $(book).turn("page");
+		if (current !== 1 && current !== pdf.numPages) {
+			$(book).turn("page", 1);
+		} else {
+			closeBook();
+		}
+	});
+
+	$(book).on("turned ", async function(e, pageNum, view) {
+		if (close) {
+			closeBook();
+		}
+	});
 }
-
-// async function book(book) {
-// 	pdfjsLib.GlobalWorkerOptions.workerSrc = "/build/pdf.worker.js";
-//
-// 	var url = $(book).attr("book");
-// 	var coverUrl = $(book).attr("cover");
-// 	var name = url.substring(url.lastIndexOf("/") + 1).split(".")[0];
-//
-// 	var parent = $(book).parent();
-// 	var index = parent.children().index(book);
-//
-// 	var container = $("<div class='book-container thumbnail'><div class='book-viewer'><div class='book-wrapper'></div></div></div>");
-// 	$(".book-wrapper", container).append(book);
-//
-// 	var pdf = window.localStorage.getItem(name);
-// 	var saved = true;
-// 	if (!pdf) {
-// 		console.log("No pdf for " + name + " saved in localStorage");
-// 		saved = false;
-//
-// 		var loadingTask = pdfjsLib.getDocument(url);
-// 		pdf = await loadingTask.promise;
-// 	}
-//
-// 	var getViewport = function(page, maxHeight) {
-// 		var pageHeight = saved ? page.height : page.getViewport({ scale: 1 }).height;
-// 		var pageWidth = saved ? page.width : page.getViewport({ scale: 1 }).width;
-//
-// 		var heightScale = maxHeight / pageHeight;
-// 		var widthScale = ($(document).outerWidth(true) - 150) / (pageWidth * 2);
-// 		var scale = Math.min(heightScale, widthScale);
-//
-// 		var viewport = page.getViewport({ scale: scale });
-// 		if (saved) {
-// 			viewport = {
-// 				width: pageWidth * scale,
-// 				height: pageHeight * scale
-// 			};
-// 		}
-//
-// 		return viewport;
-// 	};
-//
-// 	var drawImg = async function(src, canvas) {
-// 		return new Promise(function(resolve, reject) {
-// 			var img = new Image();
-// 			var dims = {};
-// 			img.onload = function() {
-// 				var scale = $(book).parents(".book-container").outerWidth(true) / img.width;
-// 				dims.width = $(book).parents(".book-container").outerWidth(true);
-// 				dims.height = img.height * scale;
-//
-// 				canvas.width = dims.width;
-// 				canvas.height = dims.height;
-//
-// 				canvas.getContext("2d").drawImage(img, 0, 0, dims.width, dims.height);
-// 				resolve(dims);
-// 			};
-// 			img.src = src;
-// 		});
-// 	};
-//
-// 	var rendered = Array(pdf.numPages).fill(false);
-// 	var renderPage = async function(i, maxHeight) {
-// 		rendered[i - 1] = true;
-//
-// 		var page = saved ? pdf.pages[i - 1] : await pdf.getPage(i);
-// 		var viewport = getViewport(page, maxHeight);
-//
-// 		if (saved) {
-// 			if (pdf.nonBlank.includes(i)) {
-// 				$(".p" + i).addClass("non-blank");
-// 			}
-// 		} else {
-// 			var objects = await page.getOperatorList();
-//
-// 			if ($(".p" + i).is(".hard") && objects.argsArray.length > 0) {
-// 				$(".p" + i).addClass("non-blank");
-// 			}
-// 		}
-//
-// 		var canvas = $("canvas", ".p" + i);
-// 		canvas.attr("width", viewport.width);
-// 		canvas.attr("height", viewport.height);
-//
-// 		if (saved) {
-// 			await drawImg(page.data, canvas[0]);
-// 		} else {
-// 			var context = canvas[0].getContext("2d");
-// 			var renderContext = {
-// 				canvasContext: context,
-// 				viewport: viewport
-// 			};
-//
-// 			page.render(renderContext);
-// 			return viewport;
-// 		}
-// 	};
-//
-// 	if (index === 0) {
-// 		parent.prepend(container);
-// 	} else {
-// 		$(parent.children()[index - 1]).after(container);
-// 	}
-//
-// 	var numPages = pdf.numPages % 2 === 1 ? pdf.numPages + 1 : pdf.numPages;
-// 	for (var i = 0; i < numPages; i++) {
-// 		var bookPage = $("<div class='p" + (i + 1) + "'><canvas></canvas></div>");
-//
-// 		if (i < 2 || i > (numPages - 3)) {
-// 			bookPage.addClass("hard");
-// 		}
-//
-// 		bookPage.append("<div class='gradient'></div>");
-// 		$(book).append(bookPage);
-// 	}
-//
-// 	var cover = $(book).children(".hard").first();
-// 	cover.addClass("non-blank");
-//
-// 	var coverCanvas = $("canvas", cover)[0];
-// 	var dims = await drawImg("../covers/Annual-Report-2015-English-cover.png", coverCanvas);
-//
-// 	$(book).parents(".book-wrapper").css("width", dims.width * 2);
-// 	$(book).parents(".book-container").css("height", dims.height);
-//
-// 	$(book).turn({
-// 		width: dims.width * 2,
-// 		height: dims.height,
-// 		autoCenter: true,
-// 		duration: 1000
-// 	});
-//
-// 	var top = $(book).offset().top;
-// 	var left = $(book).offset().left;
-//
-// 	$(book).parents(".thumbnail").click(async function(e) {
-// 		$(this).off("click");
-// 		$(this).removeClass("thumbnail");
-// 		$(book, this).turn("page", 3);
-//
-// 		var padding = $(this).parent().innerHeight() - $(this).outerHeight(true);
-// 		$(".book-wrapper", this).css({
-// 			top: top - padding,
-// 			left: left
-// 		});
-//
-// 		var finalHeight = $(window).outerHeight(true) * 0.75;
-// 		var scale = finalHeight / dims.height;
-// 		var finalWidth = dims.width * scale;
-//
-// 		var finalTop = $(window).outerHeight(true) * 0.04;
-// 		var finalLeft = ($(window).outerWidth(true) - (finalWidth * 2)) / 2;
-//
-// 		var props = {
-// 			top: finalTop,
-// 			left: finalLeft
-// 		};
-//
-// 		var size = {
-// 			width: finalWidth * 2,
-// 			height: finalHeight
-// 		};
-//
-// 		$(book, this).animate(size, {
-// 			duration: 600,
-// 			start: async function() {
-// 				await renderPage(3, finalHeight);
-// 				await renderPage(2, finalHeight);
-// 				await renderPage(1, finalHeight);
-// 			},
-// 			progress: function() {
-// 				$(this).turn("size", parseInt($(this).css("width")), parseInt($(this).css("height")));
-// 			}
-// 		});
-//
-// 		$(".book-wrapper", this).animate(props, 600);
-//
-// 		$(book).on("turning", async function(e, pageNum, view) {
-// 			var range = $(this).turn("range");
-// 			for (var i = range[0]; i <= range[1]; i++) {
-// 				if (i <= pdf.numPages && !rendered[i - 1]) {
-// 					await renderPage(i, finalHeight);
-// 				}
-// 			}
-// 		});
-//
-// 		// var textContent = await page.getTextContent();
-// 		// var div = $("<div class='textLayer'></div>");
-// 		// $(book).append(div);
-// 		//
-// 		// console.log(textContent);
-// 		//
-// 		// var textLayer = pdfjsLib.renderTextLayer({
-// 		// 	textContent: textContent,
-// 		// 	container: div[0],
-// 		// 	viewport: viewport
-// 		// });
-// 		//
-// 		// textLayer._render();
-// 	});
-// }
-
-// $(".book").each(async function() {
-// 	await book(this);
-// });
