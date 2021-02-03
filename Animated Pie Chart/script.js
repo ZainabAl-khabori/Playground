@@ -2,16 +2,15 @@
 
 var chartData = {
 	barCircleWeb: [
-		{ index: 0, value: 31588490, fill: "#00833e" },
-		{ index: 1, value: 26260662, fill: "#3fae2a" },
-		{ index: 2, value: 24263463, fill: "#95d600" },
-		{ index: 3, value: 12795112, fill: "#c4d600" },
-		{ index: 4, value: 11959167, fill: "#e0e67e" }
+		{ index: 0, value: 23, fill: "#00833e" },
+		{ index: 1, value: 5, fill: "#3fae2a" },
+		{ index: 2, value: 14, fill: "#95d600" },
+		{ index: 3, value: 58, fill: "#c4d600" },
+		{ index: 4, value: 100, fill: "#e0e67e" }
 	]
 };
 
 function drawBarCircleChart(data, target) {
-	var size = data[0].value * 1.15;
 	var minRadius = 75;
 	var stroke = 15;
 	var target = d3.select(target);
@@ -20,7 +19,7 @@ function drawBarCircleChart(data, target) {
 		.innerRadius(function(d) { return minRadius + stroke * d.index; })
 		.outerRadius(function(d) { return minRadius + stroke * (d.index + 1); })
 		.startAngle(Math.PI)
-		.endAngle(function(d) { return Math.PI + (d.value / size) * 2 * Math.PI; });
+		.endAngle(function(d) { return Math.PI + ((d.value * Math.PI) / 50); });
 
 	var path = target.selectAll("path").data(data).enter().append("svg:path")
 		.attr("fill", function(d) { return d.fill; })
@@ -40,5 +39,5 @@ function drawBarCircleChart(data, target) {
 
 // Animation Queue
 setTimeout(function() {
-	drawBarCircleChart(chartData.barCircleWeb, "#circleBar-web-chart");
+	drawBarCircleChart(chartData.barCircleWeb, ".animated-pie-chart");
 }, 500);
