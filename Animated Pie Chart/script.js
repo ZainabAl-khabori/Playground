@@ -1,8 +1,24 @@
 // jshint esversion: 8
 
 function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill) {
-	$(container).append("<svg viewbox='0 0 450 300' xmlns='http://www.w3.org/2000/svg'></svg>")
 	var id = $(container).attr("id");
+	var name = $(container).attr("name");
+	$(container).css({
+		"position": "relative",
+		"display": "flex",
+		"align-items": "center",
+		"justify-content": "center"
+	});
+
+	$(container).append("<svg viewbox='0 0 450 300' xmlns='http://www.w3.org/2000/svg'></svg>")
+	$(container).append("<h1 class='name'>" + name + "</h1>");
+	$(".name", container).css({
+		"color": indicatorFill,
+		"max-width": minRadius * 2,
+		"max-height": minRadius * 2,
+		"text-align": "center",
+		"position": "absolute"
+	});
 
 	d3.select("#" + id + " svg").append("g").attr("class", "animated-pie-chart").attr("transform", "translate(150, 150)");
 	var target = d3.select("#" + id + " .animated-pie-chart");
