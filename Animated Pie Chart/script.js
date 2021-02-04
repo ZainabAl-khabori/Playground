@@ -90,4 +90,4 @@ var data = [
 	{ "index": 4, "value": 23, "fill": "#e0e67e" }
 ];
 
-pieChart($("#shareholders")[0], data, 75, 15, "#e3e5e9", "#838383");
+pieChart($("#shareholders")[0], data, 75, 15, "#e3e5e9", "darkgray");
