@@ -6,10 +6,6 @@ body {
 }
 
 .pie-chart {
-	width: 20vw;
+	width: 30vw;
 	height: 20vw;
-}
-
-.pie-chart .path {
-	fill: #e3e5e9;
 }
