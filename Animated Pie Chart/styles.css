@@ -8,9 +8,8 @@ body {
 .pie-chart {
 	width: 20vw;
 	height: 20vw;
-	border: 1px solid deeppink;
 }
 
-.pie-chart path {
-	stroke: white;
+.pie-chart .path {
+	fill: #e3e5e9;
 }

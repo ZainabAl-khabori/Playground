@@ -1,43 +1,45 @@
 // jshint esversion: 8
 
-var chartData = {
-	barCircleWeb: [
-		{ index: 0, value: 23, fill: "#00833e" },
-		{ index: 1, value: 5, fill: "#3fae2a" },
-		{ index: 2, value: 14, fill: "#95d600" },
-		{ index: 3, value: 58, fill: "#c4d600" },
-		{ index: 4, value: 100, fill: "#e0e67e" }
-	]
-};
-
-function drawBarCircleChart(data, target) {
-	var minRadius = 75;
-	var stroke = 15;
+function pieChart(target, minRadius, barWidth) {
 	var target = d3.select(target);
+	var data = [];
+	$(".data").each(function(i) {
+		data.push({
+			index: i,
+			value: parseFloat($(this).attr("value"))
+		});
+	});
 
-	var arc = d3.arc()
-		.innerRadius(function(d) { return minRadius + stroke * d.index; })
-		.outerRadius(function(d) { return minRadius + stroke * (d.index + 1); })
+	var path = d3.arc()
+		.innerRadius(function(d) { return minRadius + 1.5 + (barWidth * d.index); })
+		.outerRadius(function(d) { return minRadius - 1.5 + (barWidth * (d.index + 1)); })
+		.startAngle(0)
+		.endAngle(2 * Math.PI);
+
+	var bar = d3.arc()
+		.cornerRadius(barWidth)
+		.innerRadius(function(d) { return minRadius + 0.5 + (barWidth * d.index); })
+		.outerRadius(function(d) { return minRadius - 0.5 + (barWidth * (d.index + 1)); })
 		.startAngle(Math.PI)
 		.endAngle(function(d) { return Math.PI + ((d.value * Math.PI) / 50); });
 
-	var path = target.selectAll("path").data(data).enter().append("svg:path")
-		.attr("fill", function(d) { return d.fill; })
-		.transition()
-		.ease(d3.easeElastic)
-		.duration(1000)
-		.delay(function(d, i) { return i * 100; })
-		.attrTween("d", arcTween);
+	target.selectAll(".path").data(data).attr("d", path);
 
-	function arcTween(b) {
+	function barsTween(b) {
 		var i = d3.interpolate({ value: 0 }, b);
 		return function(t) {
-			return arc(i(t));
+			return bar(i(t));
 		};
 	}
+
+	setTimeout(function() {
+		target.selectAll(".data").data(data)
+			.transition()
+			.ease(d3.easeElastic)
+			.duration(1000)
+			.delay(function(d, i) { return i * 100; })
+			.attrTween("d", barsTween);
+	}, 400);
 }
 
-// Animation Queue
-setTimeout(function() {
-	drawBarCircleChart(chartData.barCircleWeb, ".animated-pie-chart");
-}, 500);
+pieChart(".animated-pie-chart", 75, 15);
