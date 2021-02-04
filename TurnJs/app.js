@@ -47,6 +47,6 @@ app.get("/", function(req, res) {
 	res.sendFile(__dirname + "/html.html");
 });
 
-app.listen(8000, function() {
-	console.log("Server running on port 8000", "\n");
+app.listen(8080, function() {
+	console.log("Server running on port", 8080, "\n");
 });
