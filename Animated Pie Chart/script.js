@@ -63,7 +63,7 @@ function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill)
 			.attr("y2", function(d) { return minRadius + (barWidth * d.index) + (barWidth / 2); })
 			.transition()
 			.ease(d3.easeLinear)
-			.duration(100)
+			.duration(150)
 			.delay(function(d, i) { return i * 100; })
 			.attr("x2", 150)
 
@@ -76,7 +76,7 @@ function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill)
 			.transition()
 			.ease(d3.easeElastic)
 			.duration(1000)
-			.delay(function(d, i) { return i * 100; })
+			.delay(function(d, i) { return (i * 100) + 150; })
 			.attr("r", 3)
 			.attr("fill", function(d, i) { return d.fill });
 	}, 400);
