@@ -1,7 +1,6 @@
 // jshint esversion: 8
 
-function pieChart(target, minRadius, barWidth) {
-	var target = d3.select(target);
+function pieChart(selector, minRadius, barWidth) {
 	var data = [];
 	$(".data").each(function(i) {
 		data.push({
@@ -9,6 +8,12 @@ function pieChart(target, minRadius, barWidth) {
 			value: parseFloat($(this).attr("value"))
 		});
 	});
+
+	var viewbox = $(selector).parents("svg")[0].attributes[0].nodeValue;
+	var viewboxW = viewbox.split(" ")[2];
+	var viewboxH = viewbox.split(" ")[3];
+	var target = d3.select(selector);
+	target.attr("transform", "translate(" + Math.floor(viewboxW / 2) + ", " + Math.floor(viewboxH / 2) + ")");
 
 	var path = d3.arc()
 		.innerRadius(function(d) { return minRadius + 1.5 + (barWidth * d.index); })
