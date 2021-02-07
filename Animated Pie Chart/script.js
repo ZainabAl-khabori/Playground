@@ -3,36 +3,28 @@
 function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill) {
 	var id = $(container).attr("id");
 	var name = $(container).attr("name");
-	// $(container).css({
-	// 	"position": "relative",
-	// 	"display": "flex",
-	// 	"align-items": "center",
-	// 	"justify-content": "center"
-	// });
-	//
-	$(container).append("<svg viewbox='0 0 450 300' xmlns='http://www.w3.org/2000/svg'></svg>");
-	// $(container).append("<h6 class='name'>" + name + "</h6>");
-	// $(".name", container).css({
-	// 	"color": indicatorFill,
-	// 	"max-width": minRadius * 2,
-	// 	"max-height": minRadius * 2,
-	// 	"text-align": "center",
-	// 	"position": "absolute"
-	// });
 
+	$(container).append("<svg viewbox='0 0 450 300' xmlns='http://www.w3.org/2000/svg'></svg>");
 	d3.select("#" + id + " svg").append("g").attr("class", "animated-pie-chart").attr("transform", "translate(150, 150)");
 	var target = d3.select("#" + id + " .animated-pie-chart");
 
-	var context = $("<canvas></canvas>")[0].getContext("2d");
-	var font = context.font.split(" ");
-	context.font = "69px " + font[font.length - 1];
-	var textMetrics = { width: context.measureText(name).width, height: parseFloat(context.font) };
+	function getTextDims(text, titleFontSize) {
+		var context = $("<canvas></canvas>")[0].getContext("2d");
+		var font = context.font.split(" ");
+		context.font = titleFontSize + "px " + font[font.length - 1];
+		return { width: context.measureText(name).width, height: parseFloat(context.font) };
+	}
 
-	target.append("circle").attr("r", 2).attr("cx", 0).attr("cy", 0);
-	target.append("line").attr("x1", 0).attr("x2", 0).attr("y1", -minRadius).attr("y2", minRadius).attr("stroke", "#000000");
-	target.append("line").attr("x1", -minRadius).attr("x2", minRadius).attr("y1", 0).attr("y2", 0).attr("stroke", "#000000");
-	target.append("line").attr("x1", -minRadius).attr("x2", minRadius).attr("y1", textMetrics.height / 2).attr("y2", textMetrics.height / 2).attr("stroke", "red");
-	target.append("line").attr("x1", -minRadius).attr("x2", minRadius).attr("y1", -textMetrics.height / 2).attr("y2", -textMetrics.height / 2).attr("stroke", "red");
+	function barsTween(b) {
+		var i = d3.interpolate({ value: 0 }, b);
+		return function(t) {
+			return bar(i(t));
+		};
+	}
+
+	var titleFontSize = 15;
+	var fontAdjust = 0.675;
+	var titleMetrics = getTextDims(name, titleFontSize);
 
 	var path = d3.arc()
 		.innerRadius(function(d) { return minRadius + 1.5 + (barWidth * d.index); })
@@ -47,24 +39,27 @@ function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill)
 		.startAngle(Math.PI)
 		.endAngle(function(d) { return Math.PI + ((d.value * Math.PI) / 50); });
 
-	if (textMetrics.width >= minRadius * 2) {
-		console.log("too long");
-	}
-
-	target.append("text")
+	var title = target.append("text")
 		.attr("class", "name")
 		.attr("fill", indicatorFill)
-		// .attr("text-anchor", "middle")
-		.attr("x", 0)
-		.attr("y", textMetrics.height / 2)
-		.attr("font-size", 69)
-		.text(name);
+		.attr("text-anchor", "middle")
+		.attr("font-size", titleFontSize)
+		.attr("font-size-adjust", fontAdjust);
 
-	function barsTween(b) {
-		var i = d3.interpolate({ value: 0 }, b);
-		return function(t) {
-			return bar(i(t));
-		};
+	if (titleMetrics.width >= minRadius * 2) {
+		var words = name.split(" ");
+		var dy = titleMetrics.height * 2;
+		title.attr("y", (titleMetrics.height * (2 - words.length)) - (((words.length - 1) * dy) / 4));
+
+		for (var i = 0; i < words.length; i++) {
+			title.append("tspan")
+				.attr("class", "title-word")
+				.attr("x", 0)
+				.attr("dy", i * dy)
+				.text(words[i]);
+		}
+	} else {
+		title.attr("x", 0).attr("y", titleMetrics.height / 2).text(name);
 	}
 
 	target.selectAll(".path").data(data).enter().append("path")
@@ -81,63 +76,129 @@ function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill)
 		.attr("fill", indicatorFill)
 		.attr("r", 0)
 		.attr("cx", -8)
-		.attr("cy", function(d) { return minRadius + (barWidth * d.index) + (barWidth / 2); });
+		.attr("cy", function(d, i) { return minRadius + (barWidth * d.index) + (barWidth / 2); });
 
 	var lines = target.selectAll(".line").data(data).enter().append("line")
 		.attr("class", "line")
 		.attr("stroke", indicatorFill)
 		.attr("x1", -8)
 		.attr("x2", -8)
-		.attr("y1", function(d) { return minRadius + (barWidth * d.index) + (barWidth / 2); })
-		.attr("y2", function(d) { return minRadius + (barWidth * d.index) + (barWidth / 2); });
+		.attr("y1", function(d, i) { return minRadius + (barWidth * d.index) + (barWidth / 2); })
+		.attr("y2", function(d, i) { return minRadius + (barWidth * d.index) + (barWidth / 2); });
 
 	var outerDots = target.selectAll(".dot-out").data(data).enter().append("circle")
 		.attr("class", "dot-out")
+		.attr("for", function(d, i) { return "l-" + i; })
 		.attr("fill", indicatorFill)
 		.attr("r", 0)
 		.attr("cx", 150)
-		.attr("cy", function(d) { return minRadius + (barWidth * d.index) + (barWidth / 2); });
+		.attr("cy", function(d, i) { return minRadius + (barWidth * d.index) + (barWidth / 2); });
 
 	var labels = target.selectAll(".labels").data(data).enter().append("text")
 		.attr("class", "label")
+		.attr("id", function(d, i) { return "l-" + i; })
 		.attr("fill", indicatorFill)
 		.attr("font-size", 0)
+		.attr("font-size-adjust", fontAdjust)
 		.attr("x", 160)
-		.attr("y", function(d) { return minRadius - 3 + (barWidth * (d.index + 1)); })
+		.attr("y", function(d, i) { return minRadius + (barWidth * d.index) + ((barWidth + getTextDims(d.label, 10).height) / 2); })
 		.text(function(d, i) { return d.label + " (" + d.value + "%)"; });
 
-	setTimeout(function() {
-		bars.transition()
-			.ease(d3.easeElastic)
-			.duration(1000)
-			.delay(function(d, i) { return i * 100; })
-			.attrTween("d", barsTween);
+	$(".label, .dot-out", container).css({
+		"pointer-events": "none",
+		"cursor": "pointer"
+	});
 
-		innerDots.transition()
-			.ease(d3.easeElastic)
-			.duration(1000)
-			.delay(function(d, i) { return i * 100; })
-			.attr("r", 3);
+	$(".label", container).mouseenter(function() {
+		if ($(this).attr("underlined") !== "true") {
+			var id = $(this).attr("id");
+			var box = this.getBBox();
+			var y = parseFloat($(this).attr("y")) + 2;
 
-		lines.transition()
-			.ease(d3.easeLinear)
-			.duration(150)
-			.delay(function(d, i) { return i * 100; })
-			.attr("x2", 150);
+			var dot = $(".dot-out[for='" + id + "']", container);
+			var color = dot.attr("fill");
 
-		outerDots.transition()
-			.ease(d3.easeElastic)
-			.duration(1000)
-			.delay(function(d, i) { return (i * 100) + 150; })
-			.attr("r", 3)
-			.attr("fill", function(d, i) { return d.fill; });
+			target.select(".dot-out[for='" + id + "']").transition()
+				.ease(d3.easeLinear)
+				.duration(200)
+				.attr("r", 4);
 
-		labels.transition()
-			.ease(d3.easeElastic)
-			.duration(1000)
-			.delay(function(d, i) { return (i * 100) + 150; })
-			.attr("font-size", 12);
-	}, 400);
+			$(this).attr("underlined", "true");
+			target.append("line")
+				.attr("class", "underline")
+				.attr("for", id)
+				.attr("x1", 160)
+				.attr("x2", 160 + box.width)
+				.attr("y1", y)
+				.attr("y2", y)
+				.attr("stroke", color);
+		}
+	});
+
+	$(".label", container).mouseleave(function() {
+		if ($(this).attr("underlined") === "true") {
+			var id = $(this).attr("id");
+			$(".underline[for='" + id + "']", container).remove();
+
+			target.select(".dot-out[for='" + id + "']").transition()
+				.ease(d3.easeLinear)
+				.duration(200)
+				.attr("r", 3);
+
+			$(this).attr("underlined", "false");
+		}
+	});
+
+	$(".dot-out", container).mouseenter(function() {
+		var id = $(this).attr("for");
+		$(".label#" + id, container).trigger("mouseenter");
+	});
+
+	$(".dot-out", container).mouseleave(function() {
+		var id = $(this).attr("for");
+		$(".label#" + id, container).trigger("mouseleave");
+	});
+
+	return {
+		startAnimation: function() {
+			setTimeout(function() {
+				bars.transition()
+					.ease(d3.easeElastic)
+					.duration(1000)
+					.delay(function(d, i) { return i * 100; })
+					.attrTween("d", barsTween);
+
+				innerDots.transition()
+					.ease(d3.easeElastic)
+					.duration(1000)
+					.delay(function(d, i) { return i * 100; })
+					.attr("r", 3);
+
+				lines.transition()
+					.ease(d3.easeLinear)
+					.duration(150)
+					.delay(function(d, i) { return i * 100; })
+					.attr("x2", 150);
+
+				outerDots.transition()
+					.ease(d3.easeElastic)
+					.duration(1000)
+					.delay(function(d, i) { return (i * 100) + 150; })
+					.attr("r", 3)
+					.attr("fill", function(d, i) { return d.fill; });
+
+				labels.transition()
+					.ease(d3.easeElastic)
+					.duration(1000)
+					.delay(function(d, i) { return (i * 100) + 150; })
+					.attr("font-size", 10);
+
+				setTimeout(function() {
+					$(".label, .dot-out").css("pointer-events", "");
+				}, 1000);
+			}, 400);
+		}
+	};
 }
 
 var data = [
@@ -148,4 +209,5 @@ var data = [
 	{ index: 4, value: 23, fill: "#e0e67e", label: "Less than 2%" }
 ];
 
-pieChart($("#shareholders")[0], data, 75, 15, "#e3e5e9", "#a9a9a9");
+var pie = pieChart($("#shareholders")[0], data, 75, 15, "#e3e5e9", "#a9a9a9");
+pie.startAnimation();
