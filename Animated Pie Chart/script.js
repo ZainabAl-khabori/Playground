@@ -159,6 +159,20 @@ function pieChart(container, data, minRadius, barWidth, pathFill, indicatorFill)
 		$(".label#" + id, container).trigger("mouseleave");
 	});
 
+	$(".label, .dot-out", container).click(function() {
+		var attr = $(this).is(".label") ? "id" : "for";
+		var i = parseInt($(this).attr(attr).split("-")[1]);
+		var text = $(".label#l-" + i).text();
+		$(container).trigger("dataItemClick", [i, text]);
+	});
+
+	$(".label, .dot-out", container).hover(function() {
+		var attr = $(this).is(".label") ? "id" : "for";
+		var i = parseInt($(this).attr(attr).split("-")[1]);
+		var text = $(".label#l-" + i).text();
+		$(container).trigger("dataItemHover", [i, text]);
+	});
+
 	return {
 		startAnimation: function() {
 			setTimeout(function() {
@@ -211,3 +225,7 @@ var data = [
 
 var pie = pieChart($("#shareholders")[0], data, 75, 15, "#e3e5e9", "#a9a9a9");
 pie.startAnimation();
+
+$("#shareholders").on("dataItemHover", function(e, i, text) {
+	console.log(i + ")", text);
+});
