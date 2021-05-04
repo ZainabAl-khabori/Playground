@@ -3,6 +3,7 @@
 var express = require("express");
 var parser = require("body-parser");
 var multer = require("multer");
+var fs = require("fs");
 
 var app = express();
 app.use(parser.json());
@@ -11,35 +12,23 @@ app.use(express.static("public", { redirect: false }));
 
 var upload = multer();
 
-app.post("/test", upload.array("files"), function(req, res) {
-	var docs = req.body.docs;
-	var id = req.body.id;
-	var files = req.files;
+app.post("/upload", upload.single("file"), function(req, res) {
+	var doc = req.body.doc;
+	var file = req.file;
 
-	var entries = [];
-	for (var i = 0; i < docs.length; i++) {
-		var data = JSON.parse(docs[i]);
-		data.id = crypto.createHash("md5").update(id + data.title + data.type).digest("hex");
-		data.applicantId = id;
+	var dir = __dirname + "/public/uploads/";
+	doc = JSON.parse(doc);
+	var docName = doc.title + "." + file.originalname.split(".")[1];
 
-		var doc = files[i];
-		data.link = baseUrl + "job-applicants/" + id + "/" + doc.originalname;
-		data.uploadedDate = formatMySQLDate(new Date(Date.now()));
-
-		entries.push(data);
-	}
-
-	res.json(entries);
+	console.log(doc, "\n");
+	fs.writeFileSync(dir + docName, file.buffer);
+	res.end("Done!!");
 });
 
-app.post("/test2", function(req, res) {
-	var data = req.body.data;
-	var arr = [];
-	for (var d of data) {
-		arr.push(JSON.stringify(d));
-	}
-
-	res.json({ json: arr });
+app.post("/json", function(req, res) {
+	var data = req.body;
+	var json = JSON.stringify(data);
+	res.json({ json: json });
 });
 
 app.listen(8000, function() {
