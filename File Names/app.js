@@ -18,7 +18,7 @@ app.post("/upload", upload.single("file"), function(req, res) {
 
 	var dir = __dirname + "/public/uploads/";
 	doc = JSON.parse(doc);
-	var docName = doc.title + "." + file.originalname.split(".")[1];
+	var docName = doc.title;
 
 	console.log(doc, "\n");
 	fs.writeFileSync(dir + docName, file.buffer);
