@@ -16,6 +16,8 @@ app.get("/converted/:pdf", async function(req, res) {
 	var doc = await PDFDocument.load(pdf);
 	var pages = doc.getPages();
 
+	console.log(pages, "\n");
+
 	var size = pages[0].getSize();
 	var data = [];
 
