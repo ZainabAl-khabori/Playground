@@ -72,7 +72,7 @@ app.post("/pdfjs", async function(req, res) {
 
   var text = [];
 
-  for (var s of items) {
+  for (var s of content.items) {
     var length = s.str.length;
     var str = [];
 
