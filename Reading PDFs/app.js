@@ -1,6 +1,7 @@
 import parser from "body-parser";
 import express from "express";
 import { readFileSync } from "fs";
+import multer from "multer";
 import PdfParse from "pdf-parse";
 import { getDocument } from "pdfjs-dist";
 
@@ -8,28 +9,41 @@ var app = express();
 app.set("views", "Views");
 app.set("view engine", "ejs");
 app.use(parser.json({ limit: "50mb" }));
+app.use(parser.urlencoded({ extended: true, limit: "50mb" }));
 
 app.use(express.static("node_modules/pdfjs-dist"));
 app.use(express.static("Public"));
+
+var maxSize = 10 * 1024 * 1024;
+
+var upload = multer({
+  fileFilter: function(_, file, cb) {
+    file.originalname = Buffer.from(file.originalname, "latin1").toString("utf8");
+    cb(null, true);
+  },
+
+  limits: {
+    fileSize: maxSize,
+    fieldSize: maxSize
+  }
+});
 
 app.post("/parse", async function(req, res) {
   var file = req.body.file;
   var lang = req.body.lang;
   var year = req.body.year;
 
-  var buffer = readFileSync(`Public/Pdfs/${year}/${lang}/${file}`);
+  var buffer = readFileSync(`Pdfs/${year}/${lang}/${file}`);
   var pdf = await PdfParse(buffer);
   var text = pdf.text.split("\n");
 
   res.json(text);
 });
 
-app.post("/pdfjs", async function(req, res) {
-  var file = req.body.file;
-  var lang = req.body.lang;
-  var year = req.body.year;
+app.post("/pdfjs", upload.single("pdf"), async function(req, res) {
+  var file = req.file;
 
-  var buffer = readFileSync(`Public/Pdfs/${year}/${lang}/${file}`);
+  var buffer = file.buffer;
   var offset = buffer.byteOffset;
   var length = buffer.byteLength;
   var arrayBuffer = buffer.buffer.slice(offset, offset + length);
@@ -50,15 +64,15 @@ app.post("/pdfjs", async function(req, res) {
   // var dirs = items.map(function(s) { return s.dir; });
   // var strings = items.map(function(s) { return s.str; });
 
-  var items = content.items.reduce(function(all, s) {
-    if (s.hasEOL) {
-      all.push([]);
-    } else {
-      all[all.length - 1].push(s);
-    }
+  // var items = content.items.reduce(function(all, s) {
+  //   if (s.hasEOL) {
+  //     all.push([]);
+  //   } else {
+  //     all[all.length - 1].push(s);
+  //   }
 
-    return all;
-  }, [[]]);
+  //   return all;
+  // }, [[]]);
 
   var textOps = args.reduce(function(all, a) {
     for (var item of a) {
@@ -70,22 +84,22 @@ app.post("/pdfjs", async function(req, res) {
     return all;
   }, []);
 
-  var text = [];
+  // var text = [];
 
-  for (var s of items) {
-    var length = s.str.length;
-    var str = [];
+  // for (var s of items) {
+  //   var length = s.str.length;
+  //   var str = [];
 
-    for (var c = 0; c < length; c++) {
-      var ch = textOps.shift();
+  //   for (var c = 0; c < length; c++) {
+  //     var ch = textOps.shift();
 
-      if (s.dir === "rtl") {
-        str.unshift(ch);
-      } else {
-        str.push(ch);
-      }
-    }
-  }
+  //     if (s.dir === "rtl") {
+  //       str.unshift(ch);
+  //     } else {
+  //       str.push(ch);
+  //     }
+  //   }
+  // }
 
   // var text = args.map(function(a) {
   //   var str = a.reduce(function(all, s) {
@@ -105,8 +119,7 @@ app.post("/pdfjs", async function(req, res) {
 
   // console.log({ text: text.length, content: items.length });
 
-  // res.json({ success: true });
-  res.json(items);
+  res.json(objects.argsArray);
 });
 
 app.get("/", function(_, res) {
