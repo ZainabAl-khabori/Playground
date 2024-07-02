@@ -1,0 +1,1685 @@
+[
+  {
+    "str": "شركة مسقط للغازات ش.م.ع.ع",
+    "dir": "rtl",
+    "width": 98.71356000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 411.67, 726.94],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 452.38, 713.98],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "بيان المركز المالي",
+    "dir": "rtl",
+    "width": 58.08671999999999,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 452.38, 713.98],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 501.80992000000003, 702.58],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "في",
+    "dir": "rtl",
+    "width": 8.784720000000002,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 501.80992000000003, 702.58],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "31",
+    "dir": "ltr",
+    "width": 11.23754000000002,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 488.02, 702.58],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "ديسمبر",
+    "dir": "rtl",
+    "width": 23.42591999999999,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 462.08992, 702.58],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "2018",
+    "dir": "ltr",
+    "width": 22.51758000000006,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 437.11, 702.58],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 210.77, 691.06],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "إيضاح",
+    "dir": "rtl",
+    "width": 20.73672,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 210.77, 691.06],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "2018",
+    "dir": "ltr",
+    "width": 22.517579999999974,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 159.14, 691.06],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "2017",
+    "dir": "ltr",
+    "width": 21.078839999999996,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 75.984, 691.3],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 146.78, 679.54],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "لاير عماني",
+    "dir": "rtl",
+    "width": 34.73052,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 146.78, 679.54],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "لاير عماني",
+    "dir": "rtl",
+    "width": 34.561200000000014,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.4, 679.78],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 436.75, 668.02],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "الموجودات",
+    "dir": "rtl",
+    "width": 35.00939999999997,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 436.75, 668.02],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 391.39, 656.5],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "الموجودات غير المتداولة",
+    "dir": "rtl",
+    "width": 80.32739999999993,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 391.39, 656.5],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 383.69944, 645.22],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "الممتلكات واآلالت والمعدات",
+    "dir": "rtl",
+    "width": 88.06631999999985,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 383.69944, 645.22],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "8",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 218.57, 645.22],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "2,514,382",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 133.34, 644.98],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "2,675,878",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 645.22],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 397.75, 633.82],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "إستثمار في شركة شقيقة",
+    "dir": "rtl",
+    "width": 74.01276000000006,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 397.75, 633.82],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "9",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 218.57, 633.82],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1.839.874",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 633.58],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1,984,296",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 633.82],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 619.78],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "4.354.256",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 619.78],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "4,660,174",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 51.24, 620.02],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 406.36984000000007, 594.55],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "الموجودات المتداولة",
+    "dir": "rtl",
+    "width": 65.32763999999993,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 406.36984000000007, 594.55],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 443.95, 583.27],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "المخزون",
+    "dir": "rtl",
+    "width": 27.858119999999975,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 443.95, 583.27],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "10",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 583.27],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "160.107",
+    "dir": "ltr",
+    "width": 36.851999999999954,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 144.74, 583.03],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "155,561",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 583.27],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 434.47, 571.75],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "الذمم المدينة",
+    "dir": "rtl",
+    "width": 37.32012,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 434.47, 571.75],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "التجارية",
+    "dir": "rtl",
+    "width": 25.198800000000013,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 406.75, 571.75],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "واألرصدة المدينة األخرى",
+    "dir": "rtl",
+    "width": 80.54651999999996,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 323.59, 571.75],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "11",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 571.75],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1.727.088",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 571.51],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1,465,112",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 571.75],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 389.11, 560.23],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "النقد واألرصدة لدى البنوك",
+    "dir": "rtl",
+    "width": 82.67795999999998,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 389.11, 560.23],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "12",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 558.55],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "2.196.766",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 558.31],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "4,477,794",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 558.55],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 544.63],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "4.083.961",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 544.63],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "6,098,467",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 544.87],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 410.83, 532.51],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "مجموع الموجودات",
+    "dir": "rtl",
+    "width": 60.955199999999934,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 410.83, 532.51],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "8.438.217",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 530.95],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "10,758,641",
+    "dir": "ltr",
+    "width": 48.35580000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 48.48, 531.19],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 376.84984000000003, 517.87],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "حقوق المساهمين والمطلوبات",
+    "dir": "rtl",
+    "width": 94.90883999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 376.84984000000003, 517.87],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 416.11, 506.35],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "حقوق المساهمين",
+    "dir": "rtl",
+    "width": 55.706280000000014,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 416.11, 506.35],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 438.67, 495.19],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "رأس المال",
+    "dir": "rtl",
+    "width": 33.04727999999995,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 438.67, 495.19],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "13",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 495.19],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "3,000,000",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 133.34, 494.95],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "3,000,000",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 495.19],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 413.47, 483.67],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "اإلحتياطي القانوني",
+    "dir": "rtl",
+    "width": 58.31580000000003,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 413.47, 483.67],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "14",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 483.67],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1,000,000",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 133.34, 483.43],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1,000,000",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 483.67],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 415.01944, 472.15],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "االحتياطي الخاص",
+    "dir": "rtl",
+    "width": 56.76204000000002,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 415.01944, 472.15],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "15",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 472.15],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1,457,067",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 133.34, 471.91],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1,457,067",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 472.15],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 380.11, 460.63],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "إحتياطي إعادة تقييم األراضي",
+    "dir": "rtl",
+    "width": 91.60212000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 380.11, 460.63],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "8",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 218.57, 460.63],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1,110,887",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 133.34, 460.39],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1,110,887",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 460.63],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 430.03, 448.97],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "أرباح مستبقاة",
+    "dir": "rtl",
+    "width": 41.73240000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 430.03, 448.97],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "231.873",
+    "dir": "ltr",
+    "width": 36.851999999999954,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 144.74, 447.17],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "2,159,009",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 447.41],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 390.17992000000004, 435.05],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "مجموع حقوق المساهمين",
+    "dir": "rtl",
+    "width": 81.57239999999997,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 390.17992000000004, 435.05],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "6.799.827",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 433.49],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "8,726,963",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 433.73],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 439.51, 421.37],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "المطلوبات",
+    "dir": "rtl",
+    "width": 32.25047999999996,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 439.51, 421.37],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 395.92984000000007, 408.17],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "المطلوبات الغير متداولة",
+    "dir": "rtl",
+    "width": 75.75575999999995,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 395.92984000000007, 408.17],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 378.07, 396.89],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "مكافآت نهاية الخدمة للموظفين",
+    "dir": "rtl",
+    "width": 93.61403999999997,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 378.07, 396.89],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "17",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 396.89],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "53,230",
+    "dir": "ltr",
+    "width": 31.224599999999967,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 147.86, 396.65],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "120,644",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 396.89],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 327.67, 385.37],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "الجزء غير المتداول من عقود اإليجار التمويلية",
+    "dir": "rtl",
+    "width": 144.01164000000017,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 327.67, 385.37],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "16",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 383.69],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "144,656",
+    "dir": "ltr",
+    "width": 36.851999999999954,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 142.22, 383.45],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "197,261",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 383.69],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 407.11, 372.05],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "إلتزام ضريبي مؤجل",
+    "dir": "rtl",
+    "width": 64.6702800000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 407.11, 372.05],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "7",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 218.57, 370.49],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "199.010",
+    "dir": "ltr",
+    "width": 36.851999999999954,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 144.74, 370.25],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "194,320",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 370.49],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 144.74, 356.57],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "396.896",
+    "dir": "ltr",
+    "width": 36.851999999999954,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 144.74, 356.57],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "512,225",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 356.81],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 409.12936, 344.57],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "المطلوبات المتداولة",
+    "dir": "rtl",
+    "width": 62.57867999999996,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 409.12936, 344.57],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 454.18, 333.29],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "سحب",
+    "dir": "rtl",
+    "width": 17.669040000000003,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 454.18, 333.29],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "على المكشوف من البنوك",
+    "dir": "rtl",
+    "width": 78.72384000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 372.79, 333.29],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "12",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 333.29],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "-",
+    "dir": "ltr",
+    "width": 3.3166800000000007,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 175.82, 333.05],
+    "fontName": "g_d0_f1",
+    "hasEOL": false
+  },
+  {
+    "str": "350,088",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 333.29],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 327.31, 321.77],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "الذمم الدائنة التجارية واألرصدة الدائنة األخرى",
+    "dir": "rtl",
+    "width": 144.38016000000005,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 327.31, 321.77],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "18",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 321.77],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1.098.498",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 321.53],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "836,787",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 321.77],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 342.67, 310.13],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "الجزء المتداول من عقود اإليجار التمويلية",
+    "dir": "rtl",
+    "width": 129.0318000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 342.67, 310.13],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "16",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 308.57],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "55,055",
+    "dir": "ltr",
+    "width": 31.224599999999967,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 147.86, 308.33],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "40,564",
+    "dir": "ltr",
+    "width": 29.431800000000035,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 67.464, 308.57],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 403.85944, 296.9],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "ضرائب مستحقة الدفع",
+    "dir": "rtl",
+    "width": 67.87739999999998,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 403.85944, 296.9],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "7",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 218.57, 295.34],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "87.941",
+    "dir": "ltr",
+    "width": 31.224599999999967,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 150.26, 295.1],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "292,014",
+    "dir": "ltr",
+    "width": 34.70064000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 62.16, 295.34],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 281.3],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "1.241.494",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 281.3],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1,519,453",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 281.54],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 413.57992, 269.18],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "مجموع المطلوبات",
+    "dir": "rtl",
+    "width": 58.19627999999992,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 413.57992, 269.18],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "1.638.390",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 267.62],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "2,031,678",
+    "dir": "ltr",
+    "width": 43.08696000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 53.76, 267.86],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 350.81992, 255.5],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "مجموع حقوق المساهمين والمطلوبات",
+    "dir": "rtl",
+    "width": 120.88451999999995,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 350.81992, 255.5],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "8.438.217",
+    "dir": "ltr",
+    "width": 45.59687999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 135.86, 253.94],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "10,758,641",
+    "dir": "ltr",
+    "width": 48.35580000000004,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 48.48, 254.18],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 382.97944, 240.74],
+    "fontName": "g_d0_f2",
+    "hasEOL": true
+  },
+  {
+    "str": "صافي األصول للسهم الواحد",
+    "dir": "rtl",
+    "width": 88.70375999999993,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 382.97944, 240.74],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "20",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 215.93, 239.42],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "0.227",
+    "dir": "ltr",
+    "width": 25.597199999999972,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 155.9, 239.18],
+    "fontName": "g_d0_f2",
+    "hasEOL": false
+  },
+  {
+    "str": "0.291",
+    "dir": "ltr",
+    "width": 24.162960000000027,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 72.744, 239.42],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 412.73992000000004, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "تم إعتماد إصدار البيانات المالية",
+    "dir": "rtl",
+    "width": 97.74744000000003,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 412.73992000000004, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "وفقا ً لقرار مجلس اإلدارة بتاريخ",
+    "dir": "rtl",
+    "width": 98.38271999999998,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 311.81, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 298.73, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 304.01, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "مارس",
+    "dir": "rtl",
+    "width": 19.27260000000002,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 276.89, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "2019",
+    "dir": "ltr",
+    "width": 21.078839999999996,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 253.25, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": ", ووقع",
+    "dir": "rtl",
+    "width": 20.925959999999996,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 232.37, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "ها",
+    "dir": "rtl",
+    "width": 6.20423999999999,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 226.13, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "ً",
+    "dir": "ltr",
+    "width": 0,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 210.29, 216.5],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "نيابة",
+    "dir": "rtl",
+    "width": 13.230239999999995,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 210.41, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "عنه:",
+    "dir": "rtl",
+    "width": 14.342400000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 193.46, 214.94],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 153.24992, 99.36],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "عماد الصباغ",
+    "dir": "rtl",
+    "width": 40.019280000000016,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 153.24992, 99.36],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": " ",
+    "dir": "ltr",
+    "width": 282.38072,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 193.26920000000004, 99.36],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "عمر",
+    "dir": "rtl",
+    "width": 14.10336000000002,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 475.64992, 99.36],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "أ",
+    "dir": "rtl",
+    "width": 2.06172,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 471.1, 99.36],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "حمد سالم قطن",
+    "dir": "rtl",
+    "width": 44.361839999999994,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 426.67, 99.36],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 144.98, 87.84],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "الرئيس التنفيذي",
+    "dir": "rtl",
+    "width": 48.365759999999995,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 144.98, 87.84],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": " ",
+    "dir": "ltr",
+    "width": 233.32424000000003,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 193.34575999999998, 87.84],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "رئيس مجلس اإلدارة",
+    "dir": "rtl",
+    "width": 63.00695999999997,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 426.67, 87.84],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 431.47, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "تشكل اإليضاحات المرفقة",
+    "dir": "rtl",
+    "width": 79.06247999999997,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 431.47, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "من",
+    "dir": "rtl",
+    "width": 9.193079999999993,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 419.69992, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "1",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 411.91, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "إلى",
+    "dir": "rtl",
+    "width": 9.979920000000002,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 399.41992000000005, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "27",
+    "dir": "ltr",
+    "width": 10.51892,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 386.35, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "ً",
+    "dir": "ltr",
+    "width": 0,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 367.39, 43.68],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "جزءا",
+    "dir": "rtl",
+    "width": 16.31880000000009,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 367.51, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "من",
+    "dir": "rtl",
+    "width": 9.204199999999998,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 355.75, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "هذه",
+    "dir": "rtl",
+    "width": 10.597439999999997,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 342.67, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "البيانات المالية",
+    "dir": "rtl",
+    "width": 44.28215999999995,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 295.85, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": ".",
+    "dir": "ltr",
+    "width": 2.4900000000000007,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 293.21, 41.88],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  },
+  {
+    "str": "",
+    "dir": "ltr",
+    "width": 0,
+    "height": 0,
+    "transform": [9.96, 0, 0, 9.96, 286.85, 28.8],
+    "fontName": "g_d0_f3",
+    "hasEOL": true
+  },
+  {
+    "str": "7",
+    "dir": "ltr",
+    "width": 5.238960000000001,
+    "height": 9.96,
+    "transform": [9.96, 0, 0, 9.96, 286.85, 28.8],
+    "fontName": "g_d0_f3",
+    "hasEOL": false
+  }
+]
