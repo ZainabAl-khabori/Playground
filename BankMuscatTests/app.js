@@ -9,7 +9,7 @@ app.use(parser.urlencoded({ extended: true, limit: "50mb" }));
 app.get("/", async function(_, res) {
   var data = new FormData();
 
-  data.append("merchant_id", "372");
+  data.append("merchant_id", "30");
   data.append("order_id", "1234");
   data.append("currency", "OMR");
   data.append("amount", "114.123");

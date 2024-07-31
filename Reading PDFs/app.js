@@ -54,35 +54,38 @@ app.post("/pdfjs", upload.single("pdf"), async function(req, res) {
   var objects = await page.getOperatorList();
   var content = await page.getTextContent();
 
-  var args = objects.argsArray.filter(function(a) {
-    return Array.isArray(a) && Array.isArray(a[0])
-      && typeof a[0][0] === "object" && !Array.isArray(a[0][0]) && a[0][0] !== null
-      && (a[0].length > 1 || !(a[0][0].isSpace || a[0][0].unicode !== " "));
-  }).flat();
+  // var args = objects.argsArray.filter(function(a) {
+  //   return Array.isArray(a) && Array.isArray(a[0])
+  //     && typeof a[0][0] === "object" && !Array.isArray(a[0][0]) && a[0][0] !== null
+  //     && (a[0].length > 1 || !(a[0][0].isSpace || a[0][0].unicode !== " "));
+  // }).flat();
 
   // var items = content.items.filter(function(s) { return s.str !== ""; });
   // var dirs = items.map(function(s) { return s.dir; });
   // var strings = items.map(function(s) { return s.str; });
 
-  // var items = content.items.reduce(function(all, s) {
-  //   if (s.hasEOL) {
-  //     all.push([]);
-  //   } else {
-  //     all[all.length - 1].push(s);
+  var items = content.items.reduce(function(all, s) {
+    if (s.hasEOL) { all.push([]); }
+    else if (s.str !== " ") { all[all.length - 1].push(s); }
+    return all;
+  }, [[]]);
+
+  var info = items.filter(function(i) {
+    if (i.length < 2) { return false; }
+    var last = parseInt(i[i.length - 1].str.replace(/[^\u0660-\u06690-9]/g, ""));
+    var beforeLast = parseInt(i[i.length - 2].str.replace(/[^\u0660-\u06690-9]/g, ""));
+    return !(isNaN(last) || isNaN(beforeLast));
+  });
+
+  // var textOps = args.reduce(function(all, a) {
+  //   for (var item of a) {
+  //     if (isNaN(item)) {
+  //       all.push(item);
+  //     }
   //   }
 
   //   return all;
-  // }, [[]]);
-
-  var textOps = args.reduce(function(all, a) {
-    for (var item of a) {
-      if (isNaN(item)) {
-        all.push(item);
-      }
-    }
-
-    return all;
-  }, []);
+  // }, []);
 
   // var text = [];
 
@@ -119,7 +122,7 @@ app.post("/pdfjs", upload.single("pdf"), async function(req, res) {
 
   // console.log({ text: text.length, content: items.length });
 
-  res.json(objects.argsArray);
+  res.json(items);
 });
 
 app.get("/", function(_, res) {
