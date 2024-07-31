@@ -26,8 +26,6 @@ app.get("/", async function(_, res) {
   var url = "https://www.muscatgas.com/ccavRequestHandler.php";
   var fetchRes = await (await fetch(url, options)).text();
 
-  console.log(fetchRes, "\n");
-
   res.send(fetchRes);
 });
 
