@@ -88,122 +88,27 @@ app.post("/deleteSQL", upload.single("excel"), function(req, res) {
   res.end("Done");
 });
 
-app.post("/temp", upload.fields([{ name: "exported" }, { name: "fromDB" }]), function(req, res) {
-  function convertTimestamp(timestamp) {
-    return moment(timestamp, "x").format("YYYY-MM-DD HH:mm:ss");
-  }
+app.post("/temp", upload.single("json"), function(req, res) {
+  var file = req.file;
 
-  var fb = req.files.exported[0];
-  var db = req.files.fromDB[0];
+  var json = JSON.parse(file.buffer.toString());
+  var sessions = json[2].data.map(function(s) { return Object.values(JSON.parse(s.data).thawaniPayments).pop(); });
 
-  var json = JSON.parse(fb.buffer);
-  var rows = xlsx.parse(db.buffer)[0].data;
-  var headers = rows.shift();
+  var q = "start transaction;\n";
 
-  var dbData = rows.map(function(r) {
-    var rowData = {};
-
-    for (var i = 0; i < headers.length; i++) {
-      var key = headers[i];
-      var val = r[i] === 'NULL' ? null : r[i];
-
-      if (key === "Creation Date") {
-        var timestamp = (val - 25569) * 86400;
-        var date = convertTimestamp(timestamp);
-        val = date;
-      }
-
-      rowData[key] = val;
-    }
-
-    return rowData;
-  });
-
-  var data = Object.values(json).filter(function(v) {
-    var unix = v.orderPlacedTime;
-    var date = moment(unix, "x");
-
-    var year = date.year() === 2024;
-    var month = date.month() === 6;
-    var day = date.date() >= 15 && date.date() <= 21;
-    var hit = year && month && day;
-
-    return hit;
-  });
-
-  var q = "start transaction;\n"
-
-  for (var o of data) {
-    var items = o.items;
-    var first = items[0];
-    var timestamp = convertTimestamp(o.orderPlacedTime);
-
-    var rowIndex = dbData.findIndex(function(r) { return r.OrderID === parseInt(o.orderID); });
-    if (rowIndex > -1) { continue; }
-
-    var order = {
-      id: o.orderID,
-      shop_id: 3,
-      user_id: o.userID,
-      driver_id: o.driverID,
-      payment_trans_id: 0,
-      delivery_service: o.deliveryService,
-      installation_service: o.installationService,
-      total_amount: first.total_amount,
-      delivery_address: first.delivery_address,
-      billing_address: first.billing_address,
-      transaction_status: o.status,
-      email: o.email,
-      phone: o.phone,
-      payment_method: first.payment_method,
-      added: timestamp,
-      status_confirmed_time: timestamp,
-      status_on_the_way_time: timestamp,
-      status_delivered_time: timestamp,
-      status_canceled_time: timestamp,
-      promo_code: first.promo_code,
-      commission: first.order_commission,
-      NoFeedbackLateDelivery: 0,
-      NoFeedbackProductQuality: 0,
-      NoFeedbackMissingItems: 0,
-      NoFeedbackRudePerson: 0,
-      NoFeedbackOrderNotReceived: 0,
-      NoFeedbackOther: 0,
-      NoFeedbackComment: 0,
-      YesFeedbackOverallExp: 0,
-      YesFeedbackCylinderStatus: 0,
-      YesFeedbackDeliveryPerson: 0,
-      YesComment: 0,
-      lat: o.lat,
-      lon: o.lon
+  for (var s of sessions) {
+    var data = {
+      tenantId: s.user,
+      thawaniPaymentId: s.thawaniPaymentId,
+      redirectUrl: s.redirectUrl
     };
 
-    q += format("insert into mk_transaction_header set ?;\n", order);
-
-    for (var i of items) {
-      var item = {
-        transaction_header_id: o.orderID,
-        shop_id: i.shop_id,
-        item_id: i.item_id,
-        item_name: i.name,
-        item_attribute_id: i.item_id,
-        item_attribute: "",
-        unit_price: i.unit_price,
-        qty: i.qty,
-        discount_percent: i.discount_percent,
-        added: timestamp,
-        platform: i.platform,
-        external_commission: i.external_commission,
-        internal_commission: i.internal_commission
-      };
-
-      q += format("insert into mk_transaction_detail set ?;\n", item);
-    }
+    q += format("insert into ThawaniPayments set ?;\n", data);
   }
 
   q += "commit;";
 
-  var filename = "fromFB";
+  var filename = "sessions";
   writeFileSync(`Output/${filename}.sql`, q, "utf-8");
 
   res.end("Done");
