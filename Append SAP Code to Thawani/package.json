@@ -1,0 +1,18 @@
+{
+  "name": "append-sap-code-to-thawani",
+  "version": "1.0.0",
+  "description": "To extract TenantUnitId from meta data and append related SAP code",
+  "main": "app.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zainab Al-khabori",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "fetch": "^1.1.0",
+    "multer": "^1.4.5-lts.1",
+    "node-xlsx": "^0.24.0"
+  }
+}
