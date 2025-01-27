@@ -7,7 +7,6 @@ app.set("view engine", "ejs");
 app.use(parser.json({ limit: "50mb" }));
 
 app.use(express.static("node_modules/@fortawesome/fontawesome-free"));
-app.use(express.static("node_modules/three/build"));
 app.use(express.static("Public"));
 
 app.get("/", async function(_, res) {

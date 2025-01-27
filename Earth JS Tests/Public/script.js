@@ -1,19 +1,25 @@
-import * as THREE from "./three.module.js";
+import * as THREE from "three";
+import Globe from "globe.gl";
 
 function renderGlobe(container) {
   var w = $(container).width();
   var h = $(container).height();
 
-  var renderer = new THREE.WebGLRenderer();
-  var camera = new THREE.PerspectiveCamera(45, w / h, 1, 2000);
-  var scene = new THREE.Scene();
+  var globe = new Globe(container)
+    .width(w)
+    .height(h)
+    .globeImageUrl("./earth-blue-marble.jpg")
+    .bumpImageUrl("./earth-topology.jpg")
+    .backgroundImageUrl("./earth-night-sky.png");
 
-  renderer.setSize(w, h);
-  camera.position.set(0.5, 0.5, 1);
-  scene.background = new THREE.Color(0x000a88);
+  var material = globe.globeMaterial();
+  material.bumpScale = 10;
 
-  scene.add(camera);
-  $(container).append(renderer.domElement);
+  new THREE.TextureLoader().load("./earth-water.png", function(texture) {
+    material.specularMap = texture;
+    material.specular = THREE.Color("grey");
+    material.shininess = 15;
+  });
 }
 
 $(".globe").each(function() {
