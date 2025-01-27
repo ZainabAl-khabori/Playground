@@ -16,10 +16,19 @@ function renderGlobe(container) {
   material.bumpScale = 10;
 
   new THREE.TextureLoader().load("./earth-water.png", function(texture) {
-    material.specularMap = texture;
-    material.specular = THREE.Color("grey");
+    // material.specularMap = texture;
+    material.specular = new THREE.Color("grey");
     material.shininess = 15;
   });
+
+  var light = globe.lights().find(function(l) { return l.type === "DirectionalLight"; });
+  if (light) { light.position.set(1, 1, 1); }
+
+  var controls = globe.controls();
+  controls.minDistance = 250;
+  controls.maxDistance = 500;
+
+  console.log(controls);
 }
 
 $(".globe").each(function() {
