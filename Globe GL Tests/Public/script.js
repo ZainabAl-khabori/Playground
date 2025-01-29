@@ -1,26 +1,52 @@
 import * as THREE from "three";
 import * as BufferGeometryUtils from "three/addons/utils/BufferGeometryUtils.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import Globe from "globe.gl";
 
-function renderGlobe(container) {
-  function createPin() {
-    var r = 8;
-    var h = r * 2;
-    var segments = 50;
+async function renderGlobe(container) {
+  async function loadPin() {
+    return new Promise(function(resolve) {
+      new GLTFLoader().load("./pin.glb", function(gltf) {
+        var pin = gltf.scene.children.find(function(c) { return c.isMesh; });
+        resolve(pin);
+      });
+    });
+  }
 
-    var cap = new THREE.SphereGeometry(r, segments, segments, 0, Math.PI);
-    cap.rotateX(Math.PI);
-    cap.translate(0, 0, -h);
+  function createPin(pin) {
+    return function() {
+      // var r = 8;
+      // var h = r * 2;
+      // var segments = 360;
 
-    var base = new THREE.ConeGeometry(r, h, segments);
-    base.rotateX(Math.PI / 2);
-    base.translate(0, 0, h / -2);
+      // var cap = new THREE.SphereGeometry(r, segments, segments, 0, Math.PI);
+      // cap.rotateX(Math.PI);
+      // cap.translate(0, 0, -h);
 
-    var pin = BufferGeometryUtils.mergeGeometries([base, cap]);
-    var pinMaterial = new THREE.MeshLambertMaterial({ color: "palevioletred" });
-    var mesh = new THREE.Mesh(pin, pinMaterial);
+      // var base = new THREE.ConeGeometry(r, h, segments);
+      // base.rotateX(Math.PI / 2);
+      // base.translate(0, 0, h / -2);
 
-    return mesh;
+      // var pin = BufferGeometryUtils.mergeGeometries([base, cap], true);
+      // var pinMaterial = new THREE.MeshLambertMaterial({ color: "palevioletred" });
+      // var mesh = new THREE.Mesh(pin, pinMaterial);
+
+      // return mesh;
+
+      var geo = pin.geometry;
+
+      let box = new THREE.Box3().setFromObject(pin);
+      let measure = new THREE.Vector3();
+      let size = box.getSize(measure);
+
+      geo.rotateX(Math.PI / -2);
+      geo.translate(0, size.x / 2, 0);
+
+      var pinMaterial = new THREE.MeshLambertMaterial({ color: "palevioletred" });
+      var mesh = new THREE.Mesh(geo, pinMaterial);
+
+      return mesh;
+    }
   }
 
   function updatePin(obj, p) {
@@ -40,6 +66,8 @@ function renderGlobe(container) {
   var lng = 58.366840;
   var pinData = [{ lat, lng }, { lat: -28.105229, lng: 24.628755 }, { lat: 76.295604, lng: 27.617036 }];
 
+  var pin = await loadPin();
+
   var globe = new Globe(container)
     .width(w)
     .height(h)
@@ -48,7 +76,7 @@ function renderGlobe(container) {
     .backgroundImageUrl("./earth-night-sky.png")
     .pointOfView({ lat, lng })
     .customLayerData(pinData)
-    .customThreeObject(createPin)
+    .customThreeObject(createPin(pin))
     .customThreeObjectUpdate(updatePin);
 
   var globeMaterial = globe.globeMaterial();
