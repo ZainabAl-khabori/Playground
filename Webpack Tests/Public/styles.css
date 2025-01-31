@@ -1,0 +1,8 @@
+.mgc-section {
+  padding: 2rem 18rem;
+}
+
+.globe {
+  aspect-ratio: 16/9;
+  border: 2px solid palevioletred;
+}

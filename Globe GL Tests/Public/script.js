@@ -35,12 +35,12 @@ async function renderGlobe(container) {
 
       var geo = pin.geometry;
 
-      let box = new THREE.Box3().setFromObject(pin);
-      let measure = new THREE.Vector3();
-      let size = box.getSize(measure);
+      // let box = new THREE.Box3().setFromObject(pin);
+      // let measure = new THREE.Vector3();
+      // let size = box.getSize(measure);
 
-      geo.rotateX(Math.PI / -2);
-      geo.translate(0, size.x / 2, 0);
+      // geo.rotateX(Math.PI / -2);
+      // geo.translate(0, size.x / 2, 0);
 
       var pinMaterial = new THREE.MeshLambertMaterial({ color: "palevioletred" });
       var mesh = new THREE.Mesh(geo, pinMaterial);
