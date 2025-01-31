@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = {
   mode: "none",
   entry: {
-    globeGl: "./Webpack/globeGl.js"
+    globeGl: "./Webpack/globeGl.js",
   },
   experiments: {
     outputModule: true
@@ -14,14 +14,13 @@ module.exports = {
     libraryTarget: "module",
     clean: true
   },
-  externalsType: "module",
-  externals: {
-    three: "three"
-  },
+  // externalsType: "module",
+  // externals: {
+  //   three: "three"
+  // },
   resolve: {
     alias: {
-      "three": require.resolve("three"),
-      "three/webgpu": path.resolve(__dirname, "..", "node_modules/three/build/three.webgpu.js")
+      three$: path.resolve("./node_modules/three")
     },
     fallback: {
       "crypto": false
