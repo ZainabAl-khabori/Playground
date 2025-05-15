@@ -36,7 +36,7 @@ app.post("/fix", upload.fields([{ name: "units" }, { name: "thawani" }]), functi
   headers.push("SAP Code");
 
   var mapped = rows.map(function(r) {
-    var id = r[22].split(",")[1].split("=").pop();
+    var id = JSON.parse(r[21]).tenantUnitId;
     var newRow = Object.assign(new Array(headers.length - 1), r);
 
     newRow.push(codes[id]);
