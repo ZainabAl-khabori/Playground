@@ -1,0 +1,15 @@
+{
+  "name": "ex-rank-divider",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Divide the large Ex-Rank file into its separate chapters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zainab Al-khabori",
+  "license": "ISC",
+  "dependencies": {
+    "chardet": "^2.1.0"
+  }
+}
